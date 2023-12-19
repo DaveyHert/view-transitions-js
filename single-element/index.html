@@ -76,39 +76,3 @@
     </script>
   </body>
 </html>
-
-<!-- <script>
-      document.addEventListener("DOMContentLoaded", (event) => {
-        const links = document.querySelectorAll('a[href="/about.html"]');
-
-        links.forEach((link) => {
-          link.addEventListener("click", (e) => {
-            e.preventDefault(); // Prevent the default navigation
-
-            document.body.style.opacity = "0";
-
-            // After the transition setup, navigate to the new page
-            setTimeout(() => {
-              window.location.href = link.href;
-            }, 300); // This timeout should match the transition duration
-          });
-
-          //   document.startViewTransition(() => {
-          //     // Apply a fade-out effect to the entire body
-          //     document.body.style.opacity = "0";
-
-          //     // After the transition setup, navigate to the new page
-          //     setTimeout(() => {
-          //       window.location.href = link.href;
-          //     }, 300); // This timeout should match the transition duration
-          //   });
-          // });
-        });
-        // window.addEventListener("popstate", () => {
-        //   console.log("User clicked back button");
-        //   document.startViewTransition(() => {
-        //     document.body.style.opacity = "0";
-        //   });
-        // });
-      });
-    </script> -->

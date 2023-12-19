@@ -13,40 +13,6 @@
   animation-duration: 1s;
 }
 
-/* @keyframes fade-in {
-  from {
-    opacity: 0;
-  }
-}
-
-@keyframes fade-out {
-  to {
-    opacity: 0;
-  }
-}
-
-@keyframes slide-from-right {
-  from {
-    transform: translateX(30px);
-  }
-}
-
-@keyframes slide-to-left {
-  to {
-    transform: translateX(-30px);
-  }
-}
-
-::view-transition-old(root) {
-  animation: 90ms cubic-bezier(0.4, 0, 1, 1) both fade-out,
-    300ms cubic-bezier(0.4, 0, 0.2, 1) both slide-to-left;
-}
-
-::view-transition-new(root) {
-  animation: 210ms cubic-bezier(0, 0, 0.2, 1) 90ms both fade-in,
-    300ms cubic-bezier(0.4, 0, 0.2, 1) both slide-from-right;
-} */
-
 .hidden {
   display: none;
 }
@@ -100,6 +66,29 @@ img {
   view-transition-name: animal-header;
 }
 
+button {
+  padding: 1rem 2rem;
+  align-self: flex-start;
+  cursor: pointer;
+  background: #34495e;
+  color: #fff;
+  border-radius: 10px;
+  border: 5px solid #34495e;
+  font-family: "Agbalumo", serif;
+}
+
+.single__animal {
+  display: flex;
+  height: 100dvh;
+  padding: 5rem;
+  gap: 2rem;
+}
+
+/* Multiple Animation Code */
+.animal__text {
+  view-transition-name: animal-header;
+}
+
 @keyframes fade-in {
   from {
     opacity: 0;
@@ -132,24 +121,6 @@ img {
 ::view-transition-new(animal-header) {
   animation: 210ms cubic-bezier(0, 0, 0.2, 1) 90ms both fade-in,
     300ms cubic-bezier(0.4, 0, 0.2, 1) both slide-from-right;
-}
-
-button {
-  padding: 1rem 2rem;
-  align-self: flex-start;
-  cursor: pointer;
-  background: #34495e;
-  color: #fff;
-  border-radius: 10px;
-  border: 5px solid #34495e;
-  font-family: "Agbalumo", serif;
-}
-
-.single__animal {
-  display: flex;
-  height: 100dvh;
-  padding: 5rem;
-  gap: 2rem;
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
