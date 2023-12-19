@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>View Transitions with Vanilla JS</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <h1>Animal Kingdom</h1>
+    <div class="animals__list">
+      <div class="animal__container">
+        <img src="./dog.jpg" alt="Dog" />
+        <div class="animal__text">
+          <p>
+            <strong> Dogs:</strong> Dogs are known for their strong sense of
+            smell, and they have up to 300 million olfactory receptors in their
+            noses, compared to about 5-6 million in humans. This remarkable
+            sense of smell allows them to detect scents, track trails, and even
+            identify medical conditions in some cases.
+          </p>
+          <button class="show__cat">Show Cat</button>
+        </div>
+      </div>
+      <div class="animal__container hidden">
+        <img src="./cat.jpg" alt="Cat" />
+        <div class="animal__text">
+          <p>
+            <strong> Cats:</strong> Cats have retractable claws, which is a
+            unique feature that sets them apart from many other animals. These
+            sharp claws are useful for hunting, climbing, and defending
+            themselves. When a cat is at rest or walking, their claws are
+            retracted to keep them sharp, but they can extend them when needed
+            for various tasks.
+          </p>
+          <button class="show__dog">Show Dog</button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const showCatButton = document.querySelector(".show__cat");
+        const showDogButton = document.querySelector(".show__dog");
+        const dogContainer = document.querySelector(
+          ".animal__container:not(.hidden)"
+        );
+        const catContainer = document.querySelector(
+          ".animal__container.hidden"
+        );
+
+        // Function to handle the transition
+        function switchAnimal(showElement, hideElement) {
+          if (document.startViewTransition) {
+            document.startViewTransition(() => {
+              hideElement.classList.add("hidden");
+              showElement.classList.remove("hidden");
+            });
+          } else {
+            // Fallback if View Transitions API is not supported
+            hideElement.classList.add("hidden");
+            showElement.classList.remove("hidden");
+          }
+        }
+
+        // Event listener for the 'Show Cat' button
+        showCatButton.addEventListener("click", () => {
+          switchAnimal(catContainer, dogContainer);
+        });
+
+        // Event listener for the 'Show Dog' button
+        showDogButton.addEventListener("click", () => {
+          switchAnimal(dogContainer, catContainer);
+        });
+      });
+    </script>
+  </body>
+</html>
+
+<!-- <script>
+      document.addEventListener("DOMContentLoaded", (event) => {
+        const links = document.querySelectorAll('a[href="/about.html"]');
+
+        links.forEach((link) => {
+          link.addEventListener("click", (e) => {
+            e.preventDefault(); // Prevent the default navigation
+
+            document.body.style.opacity = "0";
+
+            // After the transition setup, navigate to the new page
+            setTimeout(() => {
+              window.location.href = link.href;
+            }, 300); // This timeout should match the transition duration
+          });
+
+          //   document.startViewTransition(() => {
+          //     // Apply a fade-out effect to the entire body
+          //     document.body.style.opacity = "0";
+
+          //     // After the transition setup, navigate to the new page
+          //     setTimeout(() => {
+          //       window.location.href = link.href;
+          //     }, 300); // This timeout should match the transition duration
+          //   });
+          // });
+        });
+        // window.addEventListener("popstate", () => {
+        //   console.log("User clicked back button");
+        //   document.startViewTransition(() => {
+        //     document.body.style.opacity = "0";
+        //   });
+        // });
+      });
+    </script> -->
